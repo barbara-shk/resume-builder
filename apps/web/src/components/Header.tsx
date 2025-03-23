@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
   background: linear-gradient(135deg, ${props => props.theme.colors.gradient.start}, ${props => props.theme.colors.gradient.end});
-  padding: ${props => props.theme.spacing.medium} ${props => props.theme.spacing.xlarge};
+  padding: ${props => props.theme.spacing.medium} ${props => props.theme.spacing.xl};
   color: white;
 `;
 

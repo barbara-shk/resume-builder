@@ -47,7 +47,7 @@ const FormTitle = styled.h2`
 `;
 
 const FormSection = styled.div`
-  margin-bottom: ${props => props.theme.spacing.xlarge};
+  margin-bottom: ${props => props.theme.spacing.xl};
   background: #FAFAFA;
   border-radius: ${props => props.theme.borderRadius.medium};
   padding: ${props => props.theme.spacing.large};
@@ -83,7 +83,7 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   padding: ${props => props.theme.spacing.medium};
-  border: 2px solid ${props => props.theme.colors.lightGray};
+  border: 2px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius.medium};
   font-family: ${props => props.theme.fonts.body};
   font-size: 1rem;
@@ -103,7 +103,7 @@ const Input = styled.input`
 const Textarea = styled.textarea`
   width: 100%;
   padding: ${props => props.theme.spacing.medium};
-  border: 2px solid ${props => props.theme.colors.lightGray};
+  border: 2px solid ${props => props.theme.colors.textSecondary};
   border-radius: ${props => props.theme.borderRadius.medium};
   font-family: ${props => props.theme.fonts.body};
   font-size: 1rem;

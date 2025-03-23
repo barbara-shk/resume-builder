@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'; 
 
 const PreviewContainer = styled.div`
   background: ${props => props.theme.colors.cardBg};
@@ -103,8 +103,67 @@ const ResumeContact = styled.div`
       color: ${props => props.theme.colors.accent};
     }
   }
-`
+`;
 
+const ResumeSummary = styled.div`
+  margin-bottom: ${props => props.theme.spacing.large};
+  
+  p {
+    color: ${props => props.theme.colors.textSecondary};
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+`;
+
+const SectionHeading = styled.h3`
+  font-family: ${props => props.theme.fonts.heading};
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: ${props => props.theme.colors.primary};
+  margin-bottom: ${props => props.theme.spacing.small};
+  display: flex;
+  align-items: center;
+  
+  svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    color: ${props => props.theme.colors.accent};
+  }
+`;
+
+const PlaceholderText = styled.p`
+  color: ${props => props.theme.colors.textLight};
+  font-style: italic;
+  font-size: 0.9rem;
+  border-left: 3px solid ${props => props.theme.colors.border};
+  padding-left: ${props => props.theme.spacing.small};
+  margin: ${props => props.theme.spacing.small} 0;
+`;
+
+const EmptyPreview = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: ${props => props.theme.spacing.xl};
+  color: ${props => props.theme.colors.textLight};
+  
+  svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: ${props => props.theme.spacing.medium};
+    color: ${props => props.theme.colors.border};
+  }
+  
+  p {
+    font-size: 1.1rem;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+`;
 interface ResumePreviewProps {
   profileData: {
     name: string;
