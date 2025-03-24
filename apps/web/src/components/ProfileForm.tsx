@@ -1,168 +1,129 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CircleOutline, DecoLine, GradientButton } from './ui/GradientComponents'; 
 
-// Form container with more vibrant styling
+// Form container with minimalist styling
 const FormContainer = styled.div`
   background: ${props => props.theme.colors.cardBg};
-  border-radius: ${props => props.theme.borderRadius.large};
-  box-shadow: ${props => props.theme.shadows.medium};
-  padding: ${props => props.theme.spacing.large};
+  border-radius: ${props => props.theme.borderRadius.medium};
+  box-shadow: ${props => props.theme.shadows.small};
+  padding: ${props => props.theme.spacing.large} ${props => props.theme.spacing.xl};
   position: relative;
   overflow: hidden;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, 
-      ${props => props.theme.colors.gradient.start}, 
-      ${props => props.theme.colors.gradient.end}
-    );
-  }
 `;
 
 const FormTitle = styled.h2`
   font-family: ${props => props.theme.fonts.heading};
   margin-top: ${props => props.theme.spacing.medium};
-  margin-bottom: ${props => props.theme.spacing.large};
-  color: ${props => props.theme.colors.primary};
-  font-size: 1.8rem;
-  font-weight: 700;
+  margin-bottom: ${props => props.theme.spacing.xl};
+  color: ${props => props.theme.colors.text};
+  font-size: ${props => props.theme.fontSizes.xl};
+  font-weight: ${props => props.theme.fontWeights.light};
   position: relative;
   display: inline-block;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 40%;
-    height: 4px;
-    background-color: ${props => props.theme.colors.secondary};
-    border-radius: 2px;
-  }
+  letter-spacing: ${props => props.theme.letterSpacing.tight};
 `;
 
 const FormSection = styled.div`
   margin-bottom: ${props => props.theme.spacing.xl};
-  background: #FAFAFA;
-  border-radius: ${props => props.theme.borderRadius.medium};
-  padding: ${props => props.theme.spacing.large};
+  border-radius: ${props => props.theme.borderRadius.small};
+  padding: ${props => props.theme.spacing.medium} 0;
+  position: relative;
+`;
+
+const SectionTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: ${props => props.theme.spacing.large};
+  
+  &::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: ${props => props.theme.colors.border};
+    margin-right: ${props => props.theme.spacing.medium};
+  }
 `;
 
 const SectionTitle = styled.h3`
   font-family: ${props => props.theme.fonts.heading};
-  font-size: 1.2rem;
-  margin-bottom: ${props => props.theme.spacing.medium};
-  color: ${props => props.theme.colors.primary};
-  display: flex;
-  align-items: center;
-  
-  svg {
-    margin-right: ${props => props.theme.spacing.small};
-    width: 20px;
-    height: 20px;
-  }
+  font-size: ${props => props.theme.fontSizes.medium};
+  color: ${props => props.theme.colors.text};
+  font-weight: ${props => props.theme.fontWeights.light};
+  margin: 0;
 `;
 
 const InputGroup = styled.div`
-  margin-bottom: ${props => props.theme.spacing.medium};
+  margin-bottom: ${props => props.theme.spacing.large};
+  position: relative;
 `;
 
 const Label = styled.label`
   display: block;
   margin-bottom: ${props => props.theme.spacing.small};
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: ${props => props.theme.colors.text};
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.textSecondary};
+  letter-spacing: ${props => props.theme.letterSpacing.wide};
 `;
 
 const Input = styled.input`
   width: 100%;
   padding: ${props => props.theme.spacing.medium};
-  border: 2px solid ${props => props.theme.colors.border};
-  border-radius: ${props => props.theme.borderRadius.medium};
+  border: 1px solid ${props => props.theme.colors.border};
+  border-radius: ${props => props.theme.borderRadius.small};
   font-family: ${props => props.theme.fonts.body};
-  font-size: 1rem;
-  transition: all 0.2s ease;
+  font-size: ${props => props.theme.fontSizes.base};
+  transition: ${props => props.theme.transitions.default};
+  background-color: transparent;
   
   &:focus {
     outline: none;
     border-color: ${props => props.theme.colors.primary};
-    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
   }
   
   &::placeholder {
-    color: #B8B2C5;
+    color: ${props => props.theme.colors.textLight};
+    font-weight: ${props => props.theme.fontWeights.light};
   }
 `;
 
 const Textarea = styled.textarea`
   width: 100%;
   padding: ${props => props.theme.spacing.medium};
-  border: 2px solid ${props => props.theme.colors.textSecondary};
-  border-radius: ${props => props.theme.borderRadius.medium};
+  border: 1px solid ${props => props.theme.colors.border};
+  border-radius: ${props => props.theme.borderRadius.small};
   font-family: ${props => props.theme.fonts.body};
-  font-size: 1rem;
+  font-size: ${props => props.theme.fontSizes.base};
   min-height: 140px;
   resize: vertical;
-  transition: all 0.2s ease;
+  transition: ${props => props.theme.transitions.default};
+  background-color: transparent;
   
   &:focus {
     outline: none;
     border-color: ${props => props.theme.colors.primary};
-    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
   }
   
   &::placeholder {
-    color: #B8B2C5;
+    color: ${props => props.theme.colors.textLight};
+    font-weight: ${props => props.theme.fontWeights.light};
   }
 `;
 
 const HelpText = styled.p`
-  font-size: 0.85rem;
-  color: #8E7CAD;
+  font-size: ${props => props.theme.fontSizes.small};
+  color: ${props => props.theme.colors.textLight};
   margin-top: ${props => props.theme.spacing.small};
   font-style: italic;
 `;
 
-const ImportButton = styled.button`
-  background: linear-gradient(90deg, 
-    ${props => props.theme.colors.gradient.start}, 
-    ${props => props.theme.colors.gradient.end}
-  );
-  color: white;
-  border: none;
-  padding: ${props => props.theme.spacing.medium} ${props => props.theme.spacing.large};
-  border-radius: ${props => props.theme.borderRadius.medium};
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: ${props => props.theme.spacing.medium};
-  transition: all 0.2s ease;
+const ImportButtonWrapper = styled.div`
+  position: relative;
+  margin-top: ${props => props.theme.spacing.xl};
   display: flex;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(142, 68, 173, 0.3);
-  
-  svg {
-    margin-right: ${props => props.theme.spacing.small};
-    width: 20px;
-    height: 20px;
-  }
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(142, 68, 173, 0.4);
-  }
-  
-  &:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(142, 68, 173, 0.4);
-  }
 `;
 
 // Interface for our component props
@@ -184,10 +145,23 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ profileData, onChange }) => {
 
   return (
     <FormContainer>
-      <FormTitle>Your Profile</FormTitle>
+      <CircleOutline 
+        size="60px" 
+        position={{ top: '30px', right: '30px' }} 
+      />
+      <DecoLine 
+        length="80px"
+        position={{ bottom: '40px', left: '20px' }}
+        rotate="-30deg"
+      />
+      
+      <FormTitle>Build your profile</FormTitle>
       
       <FormSection>
-        <SectionTitle>Personal Information</SectionTitle>
+        <SectionTitleWrapper>
+          <SectionTitle>Personal Information</SectionTitle>
+        </SectionTitleWrapper>
+        
         <InputGroup>
           <Label htmlFor="name">Full Name</Label>
           <Input
@@ -226,7 +200,10 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ profileData, onChange }) => {
       </FormSection>
       
       <FormSection>
-        <SectionTitle>Professional Summary</SectionTitle>
+        <SectionTitleWrapper>
+          <SectionTitle>Professional Summary</SectionTitle>
+        </SectionTitleWrapper>
+        
         <InputGroup>
           <Label htmlFor="summary">Summary</Label>
           <Textarea
@@ -242,7 +219,11 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ profileData, onChange }) => {
         </InputGroup>
       </FormSection>
       
-      <ImportButton>Import from JSON or PDF</ImportButton>
+      <ImportButtonWrapper>
+        <GradientButton>
+          Import from JSON or PDF
+        </GradientButton>
+      </ImportButtonWrapper>
     </FormContainer>
   );
 };

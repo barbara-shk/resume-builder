@@ -1,82 +1,104 @@
-// theme.ts
 import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   colors: {
-    // Primary colors from your App.tsx
-    primary: '#8E44AD', // Rich purple
-    secondary: '#2ECC71', // Vibrant green
-    accent: '#F39C12', // Warm orange
+    // New primary colors inspired by the design
+    primary: '#FF5C35', // Warm orange-red
+    secondary: '#FF8A65', // Lighter orange
+    accent: '#FFB599', // Soft peach
     
-    // Text colors
-    text: '#2C3E50', // Dark blue-gray from your App.tsx
-    textSecondary: '#555555', // Added for secondary text
-    textLight: '#888888', // Added for placeholder text
+    // Text colors - more subdued for minimalist aesthetic
+    text: '#2D2D2D', // Almost black but softer
+    textSecondary: '#5A5A5A', // Medium gray
+    textLight: '#909090', // Light gray
     
-    // Background colors
-    background: '#F5F0FF', // Light purple tint from your App.tsx
-    cardBg: '#FFFFFF', // White for cards from your App.tsx
-    border: '#E8E2F4', // Light purple-gray from your App.tsx (was lightGray)
+    // Background colors - light, neutral
+    background: '#F8F3EF', // Warm off-white
+    cardBg: '#FFFFFF', // Crisp white
+    border: '#E5E0DD', // Light warm gray
     
     // Status colors
-    success: '#2ECC71', // Using your secondary color
-    warning: '#F39C12', // Using your accent color
-    error: '#E74C3C', // Added for error states
+    success: '#73C3A6', // Muted teal
+    warning: '#FFBB66', // Soft amber
+    error: '#FF7D7D', // Soft red
     
-    // Gradient colors preserved from your App.tsx
+    // Gradient colors - core of the new design
     gradient: {
-      start: '#9C4DF4', // Bright purple
-      end: '#5E17EB', // Deeper purple
+      start: '#FF5C35', // Warm orange-red
+      middle: '#FF7F51', // Mid-tone orange
+      end: '#FFAA80', // Soft peach
     }
   },
   
-  fonts: {
-    body: '"Nunito", sans-serif', // From your App.tsx
-    heading: '"Poppins", sans-serif', // From your App.tsx
+  fonts: { 
+    body: '"Inter", "Helvetica Neue", sans-serif',
+    heading: '"Sora", "Helvetica Neue", sans-serif',
   },
   
   fontSizes: {
     small: '0.875rem', // 14px
     base: '1rem',      // 16px
     medium: '1.25rem', // 20px
-    large: '1.5rem',   // 24px
-    xl: '2rem',        // 32px
-    xxl: '2.5rem',     // 40px
+    large: '1.75rem',  // 28px - slightly larger
+    xl: '2.5rem',      // 40px - much larger for impact
+    xxl: '3.5rem',     // 56px - for major headings
+  },
+  
+  fontWeights: {
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
   },
   
   spacing: {
-    xs: '4px',                      // Added for very small spacing
-    small: '8px',                   // From your App.tsx
-    medium: '16px',                 // From your App.tsx
-    large: '24px',                  // From your App.tsx
-    xl: '32px',                     // From your App.tsx (was xlarge)
-    xxl: '48px',                    // Added for extra large spacing
+    xs: '8px',        // Increased from 4px
+    small: '16px',    // Increased from 8px
+    medium: '32px',   // Increased from 16px
+    large: '48px',    // Increased from 24px
+    xl: '64px',       // Increased from 32px
+    xxl: '96px',      // Increased from 48px
   },
   
   borderRadius: {
-    small: '8px',                   // From your App.tsx
-    medium: '12px',                 // From your App.tsx
-    large: '16px',                  // From your App.tsx
-    circle: '50%',                  // From your App.tsx
+    small: '4px',     // Reduced from 8px - more subtle
+    medium: '8px',    // Reduced from 12px
+    large: '12px',    // Reduced from 16px
+    circle: '50%',    // Unchanged
   },
   
   shadows: {
-    small: '0 2px 8px rgba(142, 68, 173, 0.1)',   // From your App.tsx
-    medium: '0 4px 16px rgba(142, 68, 173, 0.15)', // From your App.tsx
-    large: '0 8px 24px rgba(142, 68, 173, 0.2)',   // From your App.tsx
+    small: '0 2px 10px rgba(0, 0, 0, 0.03)',   // More subtle
+    medium: '0 4px 20px rgba(0, 0, 0, 0.05)',  // More subtle
+    large: '0 8px 30px rgba(0, 0, 0, 0.07)',   // More subtle
   },
   
   breakpoints: {
-    mobile: '576px',                // From your App.tsx
-    tablet: '768px',                // From your App.tsx
-    desktop: '992px',               // From your App.tsx
-    wide: '1200px',                 // From your App.tsx
+    mobile: '576px',  // Unchanged
+    tablet: '768px',  // Unchanged
+    desktop: '992px', // Unchanged
+    wide: '1200px',   // Unchanged
   },
   
   transitions: {
-    default: 'all 0.3s ease',       // Added for consistent transitions
-    fast: 'all 0.15s ease',         // Added for quick interactions
-    slow: 'all 0.5s ease',          // Added for emphasis
+    default: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)', // Slightly more polished easing
+    fast: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',    
+    slow: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',    
+  },
+  
+  // New properties for the minimalist design
+  lineHeights: {
+    tight: 1.2,
+    normal: 1.5,
+    loose: 1.8,
+  },
+  
+  letterSpacing: {
+    tight: '-0.02em',
+    normal: '0',
+    wide: '0.02em',
+    extraWide: '0.05em',
   },
 };
 

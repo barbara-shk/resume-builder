@@ -17,6 +17,7 @@ declare module 'styled-components' {
       error: string;
       gradient: {
         start: string;
+        middle: string;
         end: string;
       };
     };
@@ -33,6 +34,14 @@ declare module 'styled-components' {
       large: string;
       xl: string;
       xxl: string;
+    };
+    
+    fontWeights: {
+      light: number;
+      regular: number;
+      medium: number;
+      semibold: number;
+      bold: number;
     };
     
     spacing: {
@@ -68,6 +77,19 @@ declare module 'styled-components' {
       default: string;
       fast: string;
       slow: string;
+    };
+    
+    lineHeights: {
+      tight: number;
+      normal: number;
+      loose: number;
+    };
+    
+    letterSpacing: {
+      tight: string;
+      normal: string;
+      wide: string;
+      extraWide: string;
     };
   }
 }

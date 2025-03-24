@@ -1,10 +1,17 @@
-import React from 'react';
 import styled from 'styled-components';
+import { GradientCircle, CircleOutline } from './ui/GradientComponents'; 
+
+const HeaderWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
 
 const HeaderContainer = styled.header`
-  background: linear-gradient(135deg, ${props => props.theme.colors.gradient.start}, ${props => props.theme.colors.gradient.end});
-  padding: ${props => props.theme.spacing.medium} ${props => props.theme.spacing.xl};
-  color: white;
+  background: transparent;
+  padding: ${props => props.theme.spacing.large} ${props => props.theme.spacing.xl};
+  color: ${props => props.theme.colors.text};
+  position: relative;
+  z-index: 1;
 `;
 
 const HeaderContent = styled.div`
@@ -17,11 +24,11 @@ const HeaderContent = styled.div`
 
 const Logo = styled.h1`
   font-family: ${props => props.theme.fonts.heading};
-  font-weight: 800;
+  font-weight: ${props => props.theme.fontWeights.light};
   margin: 0;
-  color: white;
+  color: ${props => props.theme.colors.text};
   font-size: 1.7rem;
-  letter-spacing: -0.5px;
+  letter-spacing: ${props => props.theme.letterSpacing.tight};
   display: flex;
   align-items: center;
   
@@ -32,20 +39,28 @@ const Logo = styled.h1`
     &:after {
       content: '';
       position: absolute;
-      bottom: 5px;
-      left: 0;
-      width: 100%;
+      bottom: 2px;
+      left: -2px;
+      width: 105%;
       height: 8px;
-      background-color: rgba(255, 255, 255, 0.3);
+      background: linear-gradient(
+        90deg,
+        ${props => props.theme.colors.gradient.start}40,
+        ${props => props.theme.colors.gradient.end}40
+      );
       z-index: -1;
-      transform: skew(-12deg);
+      border-radius: 4px;
     }
   }
 `;
 
 const LogoIcon = styled.div`
   margin-right: 12px;
-  background: white;
+  background: linear-gradient(
+    135deg,
+    ${props => props.theme.colors.gradient.start},
+    ${props => props.theme.colors.gradient.end}
+  );
   width: 36px;
   height: 36px;
   border-radius: ${props => props.theme.borderRadius.circle};
@@ -56,7 +71,7 @@ const LogoIcon = styled.div`
   svg {
     width: 20px;
     height: 20px;
-    color: ${props => props.theme.colors.primary};
+    color: white;
   }
 `;
 
@@ -67,52 +82,90 @@ const Nav = styled.nav`
 
 const NavLink = styled.a`
   text-decoration: none;
-  color: white;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: ${props => props.theme.borderRadius.medium};
-  transition: all 0.2s ease;
+  color: ${props => props.theme.colors.text};
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-family: ${props => props.theme.fonts.heading};
+  padding: 8px 0;
   position: relative;
+  transition: ${props => props.theme.transitions.default};
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: ${props => props.theme.colors.primary};
+    transition: ${props => props.theme.transitions.default};
+  }
   
   &:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    color: ${props => props.theme.colors.primary};
+    
+    &::after {
+      width: 100%;
+    }
   }
   
   &.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    color: ${props => props.theme.colors.primary};
     
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 16px;
-      right: 16px;
-      height: 3px;
-      background-color: white;
-      border-radius: 2px;
+    &::after {
+      width: 100%;
+      background: linear-gradient(
+        90deg,
+        ${props => props.theme.colors.gradient.start},
+        ${props => props.theme.colors.gradient.end}
+      );
     }
   }
 `;
 
+const DecoLine = styled.div`
+  width: 40px;
+  height: 1px;
+  background-color: ${props => props.theme.colors.border};
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  transform: rotate(-30deg);
+`;
+
 const Header = () => {
   return (
-    <HeaderContainer>
-      <HeaderContent>
-        <Logo>
-          <LogoIcon>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-          </LogoIcon>
-          <span>ResumeAI</span>
-        </Logo>
-        <Nav>
-          <NavLink href="#" className="active">Resume</NavLink>
-          <NavLink href="#">Cover Letter</NavLink>
-          <NavLink href="#">About</NavLink>
-        </Nav>
-      </HeaderContent>
-    </HeaderContainer>
+    <HeaderWrapper>
+      <GradientCircle 
+        size="300px" 
+        position={{ top: '-200px', right: '-100px' }} 
+        zIndex={0}
+        animate={true}
+      />
+      <CircleOutline 
+        size="80px" 
+        position={{ top: '40px', right: '30%' }} 
+        zIndex={0}
+      />
+      <DecoLine />
+      
+      <HeaderContainer>
+        <HeaderContent>
+          <Logo>
+            <LogoIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </LogoIcon>
+            <span>ResumeAI</span>
+          </Logo>
+          <Nav>
+            <NavLink href="#" className="active">Resume</NavLink>
+            <NavLink href="#">Cover Letter</NavLink>
+            <NavLink href="#">About</NavLink>
+          </Nav>
+        </HeaderContent>
+      </HeaderContainer>
+    </HeaderWrapper>
   );
 };
 
